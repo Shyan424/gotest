@@ -1,0 +1,32 @@
+ syntax = "proto3";
+
+// 包名
+package  test;
+
+// 指定輸出 go 語言的原始碼到哪個目錄以及package名稱
+// 最終在 test.proto 目錄生成 test.pb.go
+// 也可以只填寫 "./path"
+// option go_package = "./;testuu";
+option go_package = "./testla";
+
+// 如果要輸出其它語言的話
+// java
+// option java_multiple_files = true;
+// option java_package = "com.example.tutorial.protos";
+// option java_outer_classname = "AddressBookProtos";
+// cshap
+// option csharp_package="MyTest";
+
+service Tester{
+  rpc MyTest(Request) returns (Response){}
+}
+
+// 函數參數
+message  Request{
+  string  jsonStr = 1;
+}
+
+// 函數返回值
+message  Response{
+  string  backJson = 1;
+}
